@@ -3,3 +3,13 @@ canvas {
 	background-color: #000;
 	border: 1px solid red;
 }
+
+label {
+	float: left;
+	width: 120px;
+}
+
+#datos {
+	margin: 0 auto;
+	width: 500px;
+}

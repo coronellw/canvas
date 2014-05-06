@@ -2,26 +2,38 @@
 	<head>
 		<title>Motor simulation</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script type="text/javascript" src="js/easel.js"></script>
+		<script type="text/javascript" src="js/createjs.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</head>
 	<body>
-		<h1>This page is for game testing only</h1>
-
 		<center>
+			<h1>This page is for testing only</h1>
+		</center>
+
+		<div id="datos">
 			<form>
 				<label>Ancho: </label>
-				<input type="number" name="ancho" id="ancho" value="150" ></input>
+				<input type="number" name="ancho" id="ancho" value="500" >
+				<br>
 
 				<label>Alto: </label>
-				<input type="number" name="alto" id="alto" value="150"></input>
+				<input type="number" name="alto" id="alto" value="350">
+				<br>
 
 				<label>Velocidad: </label>
-				<input type="number" mame="speed" id="speed">
+				<input type="number" mame="speed" id="speed" value="10">
+				<br>
+
+				<label>Tiempo(s): </label>
+				<input type="number" mame="time" id="time" value="10" >
+				<br>
 
 				<button id="control" onclick="toggleAnimation();" type="button">start</button>
-				<button onclick="moverMotor();" type="button">Stop</button>
+				<button id="stop" disabled="true" onclick="stopAnimation();" type="button">Stop</button>
 			</form>
+			<p>Tiempo restante: <span id="remaining"></span></p>
+		</div>
+		<center>
 			<div id="contenedor">
 			</div>
 		</center>
