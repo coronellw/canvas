@@ -10,6 +10,11 @@ label {
 }
 
 #datos {
+	float: left;
 	margin: 0 auto;
 	width: 500px;
+}
+
+#datos, center {
+	display: inline-block;
 }
