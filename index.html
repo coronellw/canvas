@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Motor simulation</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script type="text/javascript" src="js/easel.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+	<body>
+		<h1>This page is for game testing only</h1>
+
+		<center>
+			<form>
+				<label>Ancho: </label>
+				<input type="number" name="ancho" id="ancho" value="150" ></input>
+
+				<label>Alto: </label>
+				<input type="number" name="alto" id="alto" value="150"></input>
+
+				<label>Velocidad: </label>
+				<input type="number" mame="speed" id="speed">
+
+				<button id="control" onclick="toggleAnimation();" type="button">start</button>
+				<button onclick="moverMotor();" type="button">Stop</button>
+			</form>
+			<div id="contenedor">
+			</div>
+		</center>
+
+		<script type="text/javascript">
+			// $(document).ready(initGameModule());
+		</script>
+	</body>
+</html>
