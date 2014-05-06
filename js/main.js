@@ -1,5 +1,5 @@
 var canvas, context, posx = 10, posy = 10, dirx = 1, diry = 1, moving = false;
-var stage, sunShape, timer, countDown, count=0, interval_id = 0, timeTxt;
+var stage, sunShape, timer, countDown=10, count=0, interval_id = 0, timeTxt;
 
 window.onload = function(){
 	// moverMotor();
@@ -27,12 +27,11 @@ function moverMotor(){
 	sunShape.x = 20;
 	sunShape.y = 20;
 	stage.addChild(sunShape);
-	count = 1;
+	count = 2;
 	moving = true;
-	countDown = timer-1000;
-	
-	console.log("timer begin... "+countDown);
+	countDown = timer;
 	if (timer > 0) {
+		document.getElementById("remaining").innerHTML = countDown/1000 +" segundos";
 		interval_id = setInterval(function(){ 
 			countDown = timer - 1000*(count+1);
 			count++;
@@ -52,7 +51,11 @@ function tickHandler(e){
 		if (timer <= 0) {
 			timeTxt = "ciclico"
 		}else{
-			 timeTxt = countDown/1000 +" segundos";
+			if (countDown == 0) {
+				timeTxt = timer/1000 + " segundos"
+			} else{
+				timeTxt = countDown/1000 +" segundos";
+			};
 		}
 		document.getElementById("remaining").innerHTML = timeTxt;
 	}
@@ -74,9 +77,11 @@ function moverPunto(){
 function stopAnimation(){
 	createjs.Tween.get(sunShape, {loop:false}).to({x:10, y:10}, 1000);
 	moving = false;
+	countDown = 0;
 	clearInterval(interval_id);
 
 	toggleControls();
+	document.getElementById("remaining").innerHTML = " 0 segundos"
 	document.getElementById("control").innerHTML = "start";
 }
 
@@ -97,7 +102,7 @@ function toggleAnimation(){
 			moverMotor();
 			countDown = 0;
 			count = 0;
-			document.getElementById("remaining").innerHTML = timer/1000 +" segundos";
+			// document.getElementById("remaining").innerHTML = timer/1000 +" segundos";
 			document.getElementById("control").innerHTML = "pause";
 		};
 	}
